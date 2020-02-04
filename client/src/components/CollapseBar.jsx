@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import CollapseButtons from './CollapseButtons.jsx';
 
 const Content = styled.div`
   border: 1px solid gray;
@@ -130,35 +131,39 @@ class CollapseBar extends React.Component {
       return null;
     }
     return (
+      // <div>
+      //   <CourseContent>
+      //     Course content
+      //     <ExpandButton onClick={this.handleClickAll}>
+      //       {isToggleAll ? 'Expand All' : 'Collapse All'}
+      //     </ExpandButton>
+      //   </CourseContent>
+      //   {/* <p>Text goes here</p> */}
+      //   <Button onClick={this.handleClick}>{this.state.course[0].section_name}</Button>
+      //   <Content open={isToggleOn}>
+      //     <div>
+      //       {course[0].contents[0].content_title}
+      //     </div>
+      //     <div>
+      //       {course[0].contents[1].content_title}
+      //     </div>
+      //   </Content>
+      //   <Button onClick={this.handleClick1}>Button2</Button>
+      //   <Content open={isToggleOn1}>
+      //     <p>
+      //     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      //     </p>
+      //   </Content>
+      //   <Button onClick={this.handleClick2}>Button3</Button>
+      //   <Content open={isToggleOn2}>
+      //     <p>
+      //     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      //     </p>
+      //   </Content>
+      // </div>
+      
       <div>
-        <CourseContent>
-          Course content
-          <ExpandButton onClick={this.handleClickAll}>
-            {isToggleAll ? 'Expand All' : 'Collapse All'}
-          </ExpandButton>
-        </CourseContent>
-        {/* <p>Text goes here</p> */}
-        <Button onClick={this.handleClick}>{this.state.course[0].section_name}</Button>
-        <Content open={isToggleOn}>
-          <p>
-            {this.state.course[0].contents[0].content_title}
-          </p>
-          <p>
-          {this.state.course[0].contents[1].content_title}
-          </p>
-        </Content>
-        <Button onClick={this.handleClick1}>Button2</Button>
-        <Content open={isToggleOn1}>
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </Content>
-        <Button onClick={this.handleClick2}>Button3</Button>
-        <Content open={isToggleOn2}>
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </Content>
+        <CollapseButtons titles={this.state.course} />
       </div>
     );
   }
