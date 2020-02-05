@@ -9,7 +9,7 @@ const Button = styled.button`
   outline: none;
   text-align: left;
   padding: 15px 20px;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
   transition:background-color 0.3s linear;
 
@@ -24,37 +24,46 @@ const Content = styled.div`
   opacity: ${(props) => (props.open ? '1' : '0')};
   max-height: ${(props) => (props.open ? '100%' : '0')};
   overflow: hidden;
-  padding: ${(props) => (props.open ? '15px' : '0 15px')};
+  padding: ${(props) => (props.open ? '0px' : '0 15px')};
   transition: all 0.3s;
+  color: #686f7a;
+  letter-spacing: .3px;
 
   p {
-    margin: 0;
+    background-color: transparent;
+    font-weight: 400;
+    flex-direction: column-reverse;
+    display: flex;
+    margin-left: 15px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
   } 
 `;
 
-// const CollapseButtons = (props) => {
-//   const names = props.titles;
-//   const { isToggleOn, handleClick } = props;
+const ContentDiv = styled.div`
+  display: flex;
+  padding: 12px 30px 12px 43px;
+  background-color: #fff;
+  border: 1px solid #e8e9eb;
+  border-top: none;
+  color: #686f7a;
+  letter-spacing: .3px;
+  line-height: 1.33;
+  * {
+    box-sizing: border-box;
+  }
+`;
 
-//   return (
-//     names.map((name, i) => {
-//       return (
-//         <div>
-//           <Button key={i} onClick={handleClick}>{name.section_name}</Button>
-//           <Content open={isToggleOn}>
-//             {name.contents.map((content) => {
-//               return (
-//                 <p>{content.content_title}</p>
-//               );
-//             })}
-//           </Content>
-//         </div>
-//       );
-//     })
-//   );
-// };
+const Spans = styled.span`
+  display: inline-block;
+  margin: 4px;
+`;
 
-//
+const PlusMinus = styled.p`
+  color:#007791;
+`;
+
 class CollapseButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -72,14 +81,27 @@ class CollapseButtons extends React.Component {
 
   render() {
     const { isToggleOn } = this.state;
-    const { name } = this.props;
+    const { name, clickAll } = this.props;
     return (
       <div>
-        <Button onClick={this.handleClick}>{name.section_name}</Button>
-        <Content open={isToggleOn}>
+        <Button onClick={this.handleClick}>
+          <Spans>
+            <PlusMinus>
+              <strong>{isToggleOn ? '-' : '+'}</strong>
+            </PlusMinus>
+          </Spans>
+          <Spans>
+            <strong>
+              {name.section_name}
+            </strong>
+          </Spans>
+        </Button>
+        <Content open={isToggleOn || clickAll}>
           {name.contents.map((content) => {
             return (
-              <p>{content.content_title}</p>
+              <ContentDiv>
+                <p>{content.content_title}</p>
+              </ContentDiv>
             );
           })}
         </Content>

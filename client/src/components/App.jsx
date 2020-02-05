@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import axios from 'axios';
 import CollapseBar from './CollapseBar.jsx';
 
@@ -14,16 +13,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // $.ajax({
-    //   type: 'GET',
-    //   url: 'http://localhost:3000/test1',
-    //   success: (data) => {
-    //     this.setState({
-    //       course: data,
-    //     });
-    //     console.log(this.state.course);
-    //   },
-    // });
     this.getCourseData();
   }
 
