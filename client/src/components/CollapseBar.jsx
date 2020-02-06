@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import CollapseButtons from './CollapseButtons.jsx';
+import CollapseButtons from './CollapseButtons';
 
 
 const ExpandButton = styled.button`
@@ -11,6 +11,7 @@ const ExpandButton = styled.button`
     cursor: pointer;
     display: inline-block;
     margin-right: 20px;
+    color: #007791;
   
   a {
     color: #007791;
@@ -63,11 +64,10 @@ class CollapseBar extends React.Component {
 
   componentDidMount() {
     this.getCourseData();
-    console.log(this.state.course);
   }
 
   getCourseData() {
-    axios.get('http://localhost:3000/test1')
+    axios.get('/test1')
       .then((response) => {
         this.setState({
           course: response.data.course.sections,
