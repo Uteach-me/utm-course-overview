@@ -33,9 +33,9 @@ const Content = styled.div`
     background-color: transparent;
     font-weight: 400;
     flex-direction: column-reverse;
-    display: flex;
+    display: inline-block;
     margin-left: 15px;
-    width: 100%;
+    width: 250px;
     cursor: pointer;
     font-size: 15px;
   } 
@@ -64,6 +64,11 @@ const PlusMinus = styled.p`
   color:#007791;
 `;
 
+const TimeRight = styled.p`
+    color:#007791;
+    padding-left: 400px;
+  `;
+
 class CollapseButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -82,12 +87,18 @@ class CollapseButtons extends React.Component {
   render() {
     const { isToggleOn } = this.state;
     const { name, clickAll } = this.props;
+    let totalTime = 0;
+
+    name.contents.map((content) => {
+      totalTime = Math.floor(content.content_length) + totalTime;
+    });
+
     return (
       <div>
         <Button onClick={this.handleClick}>
           <Spans>
             <PlusMinus>
-              <strong>{isToggleOn ? '-' : '+'}</strong>
+              <strong>{isToggleOn || clickAll ? '-' : '+'}</strong>
             </PlusMinus>
           </Spans>
           <Spans>
@@ -101,6 +112,7 @@ class CollapseButtons extends React.Component {
             return (
               <ContentDiv>
                 <p>{content.content_title}</p>
+                <TimeRight>{`${Math.floor(content.content_length)}:00`}</TimeRight>
               </ContentDiv>
             );
           })}
