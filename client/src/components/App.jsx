@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import CollapseBar from './CollapseBar.jsx';
+import CollapseBar from './CollapseBar';
 
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   getCourseData() {
-    axios.get('http://localhost:3000/test1')
+    axios.get('/test1')
       .then((response) => {
         this.setState({
           course: response.data,
