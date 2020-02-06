@@ -15,10 +15,14 @@
     "seed": "node database/index.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-regular-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "i": "^0.3.6",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.8.10",
@@ -26,7 +30,8 @@
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
