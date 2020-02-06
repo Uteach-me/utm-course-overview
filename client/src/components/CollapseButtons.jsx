@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 const Button = styled.button`
   width: 100%;
@@ -111,7 +113,7 @@ class CollapseButtons extends React.Component {
           {name.contents.map((content) => {
             return (
               <ContentDiv>
-                <p>{content.content_title}</p>
+                <p><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</p>
                 <TimeRight>{`${Math.floor(content.content_length)}:00`}</TimeRight>
               </ContentDiv>
             );
