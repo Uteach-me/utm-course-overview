@@ -66,7 +66,7 @@ const PlusMinus = styled.p`
 
 const TimeRight = styled.p`
     color:#007791;
-    padding-left: 400px;
+    padding-left: 850px;
   `;
 
 class CollapseButtons extends React.Component {
