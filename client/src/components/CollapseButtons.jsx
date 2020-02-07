@@ -67,6 +67,10 @@ const PlusMinus = styled.p`
 `;
 
 const TimeRight = styled.p`
+    padding-left: 70%;
+  `;
+
+const TimeRightPreview = styled.p`
     color:#007791;
     padding-left: 70%;
   `;
@@ -119,9 +123,9 @@ class CollapseButtons extends React.Component {
                 <ContentDiv>
                   <PlayCircle><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</PlayCircle>
                   {/* <p>Preview</p> */}
-                  <TimeRight>
+                  <TimeRightPreview>
                     {`${Math.floor(content.content_length)}:00`}
-                  </TimeRight>
+                  </TimeRightPreview>
                 </ContentDiv>
               );
             }
