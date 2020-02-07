@@ -67,17 +67,27 @@ const PlusMinus = styled.p`
 `;
 
 const TimeRight = styled.p`
-    padding-left: 70%;
+  padding-left: 455px;
   `;
 
 const TimeRightPreview = styled.p`
-    color:#007791;
-    padding-left: 70%;
+  color:#007791;
+  padding-left: 350px;
   `;
+
+const TimeSpan = styled.span`
+  color:#007791;
+  padding-left: 50px;
+`;
 
 const PlayCircle = styled.p`
     color:#007791;
 `;
+
+const DivContent = styled.div`
+  width: 70%;
+`;
+
 class CollapseButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -103,7 +113,7 @@ class CollapseButtons extends React.Component {
     });
 
     return (
-      <div>
+      <DivContent>
         <Button onClick={this.handleClick}>
           <Spans>
             <PlusMinus>
@@ -122,10 +132,12 @@ class CollapseButtons extends React.Component {
               return (
                 <ContentDiv>
                   <PlayCircle><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</PlayCircle>
-                  {/* <p>Preview</p> */}
+                  <TimeSpan>
+                  <text>Preview</text>
                   <TimeRightPreview>
                     {`${Math.floor(content.content_length)}:00`}
                   </TimeRightPreview>
+                  </TimeSpan>
                 </ContentDiv>
               );
             }
@@ -149,7 +161,7 @@ class CollapseButtons extends React.Component {
             );
           })}
         </Content>
-      </div>
+      </DivContent>
     );
   }
 }
