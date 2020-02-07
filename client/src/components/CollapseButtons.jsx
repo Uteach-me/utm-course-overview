@@ -71,6 +71,9 @@ const TimeRight = styled.p`
     padding-left: 850px;
   `;
 
+const PlayCircle = styled.p`
+    color:#007791;
+`;
 class CollapseButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -111,10 +114,22 @@ class CollapseButtons extends React.Component {
         </Button>
         <Content open={isToggleOn || clickAll}>
           {name.contents.map((content) => {
+            if (content.is_vid) {
+              return (
+                <ContentDiv>
+                  <PlayCircle><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</PlayCircle>
+                  <TimeRight>
+                    {`${Math.floor(content.content_length)}:00`}
+                  </TimeRight>
+                </ContentDiv>
+              );
+            }
             return (
               <ContentDiv>
-                <p><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</p>
-                <TimeRight>{`${Math.floor(content.content_length)}:00`}</TimeRight>
+                <p><FontAwesomeIcon icon={faFile} /> {content.content_title}</p>
+                <TimeRight>
+                  {`${Math.floor(content.content_length)}:00`}
+                </TimeRight>
               </ContentDiv>
             );
           })}
