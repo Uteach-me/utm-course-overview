@@ -68,9 +68,12 @@ const PlusMinus = styled.p`
 
 const TimeRight = styled.p`
     color:#007791;
-    padding-left: 850px;
+    padding-left: 70%;
   `;
 
+const PlayCircle = styled.p`
+    color:#007791;
+`;
 class CollapseButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -111,10 +114,33 @@ class CollapseButtons extends React.Component {
         </Button>
         <Content open={isToggleOn || clickAll}>
           {name.contents.map((content) => {
+            if (content.is_vid && content.has_preview) {
+              return (
+                <ContentDiv>
+                  <PlayCircle><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</PlayCircle>
+                  {/* <p>Preview</p> */}
+                  <TimeRight>
+                    {`${Math.floor(content.content_length)}:00`}
+                  </TimeRight>
+                </ContentDiv>
+              );
+            }
+            if ((content.is_vid) && (!content.has_preview)) {
+              return (
+                <ContentDiv>
+                  <p><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</p>
+                  <TimeRight>
+                    {`${Math.floor(content.content_length)}:00`}
+                  </TimeRight>
+                </ContentDiv>
+              );
+            }
             return (
               <ContentDiv>
-                <p><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</p>
-                <TimeRight>{`${Math.floor(content.content_length)}:00`}</TimeRight>
+                <p><FontAwesomeIcon icon={faFile} /> {content.content_title}</p>
+                <TimeRight>
+                  {`${Math.floor(content.content_length)}:00`}
+                </TimeRight>
               </ContentDiv>
             );
           })}
