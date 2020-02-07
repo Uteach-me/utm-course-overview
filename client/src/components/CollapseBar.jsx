@@ -34,6 +34,7 @@ const CurrContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
+  width: 70%;
 `;
 
 const CourseLeft = styled.div`
