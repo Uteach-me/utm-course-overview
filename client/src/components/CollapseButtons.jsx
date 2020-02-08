@@ -133,7 +133,7 @@ class CollapseButtons extends React.Component {
                 <ContentDiv>
                   <PlayCircle><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</PlayCircle>
                   <TimeSpan>
-                  <text>Preview</text>
+                  Preview
                   <TimeRightPreview>
                     {`${Math.floor(content.content_length)}:00`}
                   </TimeRightPreview>
