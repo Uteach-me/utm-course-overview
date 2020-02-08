@@ -8,7 +8,7 @@
   },
   "private": true,
   "scripts": {
-    "react-dev": "webpack -d --watch",
+    "react-dev": "webpack -p --watch",
     "start": "nodemon server/index.js",
     "test": "jest",
     "build": "webpack",
