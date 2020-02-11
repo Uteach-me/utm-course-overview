@@ -104,6 +104,16 @@ const DivLeft = styled.div`
   display:inline-block;
 `;
 
+const DivLeftInner = styled.div`
+  width: 50%;
+  display:inline-block;
+`;
+
+const DivRightInner = styled.div`
+  width: 15%;
+  display:inline-block;
+`;
+
 class CollapseButtons extends React.Component {
   constructor(props) {
     super(props);
@@ -123,9 +133,11 @@ class CollapseButtons extends React.Component {
     const { isToggleOn } = this.state;
     const { name, clickAll } = this.props;
     let totalTime = 0;
+    let length = 0;
 
     name.contents.map((content) => {
       totalTime = Math.floor(content.content_length) + totalTime;
+      length += 1;
     });
 
     return (
@@ -144,9 +156,20 @@ class CollapseButtons extends React.Component {
           </Spans>
           </DivRight>
           <DivLeft>
+            <DivLeftInner>
+            <divLec>
+              <strong>
+            {length === 1 ? `${length} lecture` : `${length} lectures`}
+            </strong>
+            </divLec>
+            </DivLeftInner>
+            <DivRightInner>
           <TotalTime>
-            {isToggleOn || clickAll ? '' : `${totalTime}:00`}
+            <strong>
+            {`${totalTime}:00`}
+            </strong>
           </TotalTime>
+          </DivRightInner>
           </DivLeft>
         </Button>
         <Content open={isToggleOn || clickAll}>
