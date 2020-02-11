@@ -80,8 +80,18 @@ const TimeSpan = styled.span`
   padding-left: 50px;
 `;
 
-const PlayCircle = styled.p`
+const PlayCircle = styled.button`
     color:#007791;
+    background-color: transparent;
+    font-weight: 400;
+    flex-direction: column-reverse;
+    display: inline-block;
+    margin-left: 15px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    padding-top: 15px;
 `;
 
 const DivContent = styled.div`
@@ -119,8 +129,19 @@ class CollapseButtons extends React.Component {
     super(props);
     this.state = {
       isToggleOn: false,
+      showM: false,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
+  showModal() {
+    this.setState({ showM : true });
+  }
+
+  hideModal() {
+    this.setState({ showM: false });
   }
 
   handleClick() {
@@ -158,9 +179,7 @@ class CollapseButtons extends React.Component {
           <DivLeft>
             <DivLeftInner>
             <divLec>
-              <strong>
             {length === 1 ? `${length} lecture` : `${length} lectures`}
-            </strong>
             </divLec>
             </DivLeftInner>
             <DivRightInner>
@@ -177,7 +196,9 @@ class CollapseButtons extends React.Component {
             if (content.is_vid && content.has_preview) {
               return (
                 <ContentDiv>
-                  <PlayCircle><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</PlayCircle>
+                  <PlayCircle>
+                    <FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}
+                  </PlayCircle>
                   <TimeSpan>
                   Preview
                   <TimeRightPreview>
