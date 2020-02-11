@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Modal from './Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
@@ -39,7 +40,7 @@ const Content = styled.div`
     margin-left: 15px;
     width: 250px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
   } 
 `;
 
@@ -89,7 +90,7 @@ const PlayCircle = styled.button`
     margin-left: 15px;
     width: 250px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
     border: none;
     padding-top: 15px;
 `;
@@ -129,7 +130,7 @@ class CollapseButtons extends React.Component {
     super(props);
     this.state = {
       isToggleOn: false,
-      showM: false,
+      show: false,
     };
     this.handleClick = this.handleClick.bind(this);
     this.showModal = this.showModal.bind(this);
@@ -137,11 +138,11 @@ class CollapseButtons extends React.Component {
   }
 
   showModal() {
-    this.setState({ showM : true });
+    this.setState({ show: true });
   }
 
   hideModal() {
-    this.setState({ showM: false });
+    this.setState({ show: false });
   }
 
   handleClick() {
@@ -196,7 +197,11 @@ class CollapseButtons extends React.Component {
             if (content.is_vid && content.has_preview) {
               return (
                 <ContentDiv>
-                  <PlayCircle>
+                  <PlayCircle onClick={this.showModal}>
+                  {/* <Modal show={this.state.show} handleClose={this.hideModal} >
+                  <p>Modal</p>
+                  <p>Data</p>
+                  </Modal> */}
                     <FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}
                   </PlayCircle>
                   <TimeSpan>
