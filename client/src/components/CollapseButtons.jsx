@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Modal from './Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
-import { faFile } from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faFile } from '@fortawesome/free-solid-svg-icons';
+
+import Modal from './Modal';
 
 const Button = styled.button`
   width: 100%;
@@ -166,30 +166,30 @@ class CollapseButtons extends React.Component {
       <DivContent>
         <Button onClick={this.handleClick}>
           <DivRight>
-          <Spans>
-            <PlusMinus>
-              <strong>{isToggleOn || clickAll ? '-' : '+'}</strong>
-            </PlusMinus>
-          </Spans>
-          <Spans>
-            <strong>
-              {name.section_name}
-            </strong>
-          </Spans>
+            <Spans>
+              <PlusMinus>
+                <strong>{isToggleOn || clickAll ? '-' : '+'}</strong>
+              </PlusMinus>
+            </Spans>
+            <Spans>
+              <strong>
+                {name.section_name}
+              </strong>
+            </Spans>
           </DivRight>
           <DivLeft>
             <DivLeftInner>
-            <divLec>
-            {length === 1 ? `${length} lecture` : `${length} lectures`}
-            </divLec>
+              <divLec>
+                {length === 1 ? `${length} lecture` : `${length} lectures`}
+              </divLec>
             </DivLeftInner>
             <DivRightInner>
-          <TotalTime>
-            <strong>
-            {`${totalTime}:00`}
-            </strong>
-          </TotalTime>
-          </DivRightInner>
+              <TotalTime>
+                <strong>
+                  {`${totalTime}:00`}
+                </strong>
+              </TotalTime>
+            </DivRightInner>
           </DivLeft>
         </Button>
         <Content open={isToggleOn || clickAll}>
@@ -198,17 +198,19 @@ class CollapseButtons extends React.Component {
               return (
                 <ContentDiv>
                   <PlayCircle onClick={this.showModal}>
-                  {/* <Modal show={this.state.show} handleClose={this.hideModal} >
+                    {/* <Modal show={this.state.show} handleClose={this.hideModal} >
                   <p>Modal</p>
                   <p>Data</p>
                   </Modal> */}
-                    <FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}
+                    <FontAwesomeIcon icon={faPlayCircle} />
+                    {' '}
+                    {content.content_title}
                   </PlayCircle>
                   <TimeSpan>
                   Preview
-                  <TimeRightPreview>
-                    {`${Math.floor(content.content_length)}:00`}
-                  </TimeRightPreview>
+                    <TimeRightPreview>
+                      {`${Math.floor(content.content_length)}:00`}
+                    </TimeRightPreview>
                   </TimeSpan>
                 </ContentDiv>
               );
@@ -216,7 +218,11 @@ class CollapseButtons extends React.Component {
             if ((content.is_vid) && (!content.has_preview)) {
               return (
                 <ContentDiv>
-                  <p><FontAwesomeIcon icon={faPlayCircle} /> {content.content_title}</p>
+                  <p>
+                    <FontAwesomeIcon icon={faPlayCircle} />
+                    {' '}
+                    {content.content_title}
+                  </p>
                   <TimeRight>
                     {`${Math.floor(content.content_length)}:00`}
                   </TimeRight>
@@ -225,7 +231,11 @@ class CollapseButtons extends React.Component {
             }
             return (
               <ContentDiv>
-                <p><FontAwesomeIcon icon={faFile} /> {content.content_title}</p>
+                <p>
+                  <FontAwesomeIcon icon={faFile} />
+                  {' '}
+                  {content.content_title}
+                </p>
                 <TimeRight>
                   {`${Math.floor(content.content_length)}:00`}
                 </TimeRight>
