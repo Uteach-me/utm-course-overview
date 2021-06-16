@@ -1,6 +1,8 @@
 # utm-course-overview
 
-> Project description
+> This web application is the front-end design for a collapsible bar for an e-commerce type website that sells online courses. 
+
+https://media4.giphy.com/media/AW06uIsBBkJ921I5ea/giphy.gif
 
 ## Related Projects
 
