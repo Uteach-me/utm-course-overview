@@ -2,7 +2,7 @@
 
 > This web application is the front-end design for a collapsible bar, showing course overview for a course on a e-commerce type website that sells online courses. 
 
-https://media.giphy.com/media/AW06uIsBBkJ921I5ea/giphy.gif
+https://media4.giphy.com/media/AW06uIsBBkJ921I5ea/giphy.gif?cid=790b761137a8a5f7de234a20d11cf84725d4cb0602fb0037&rid=giphy.gif&ct=g
 
 ## Related Projects
 
